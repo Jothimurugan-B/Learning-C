@@ -6,5 +6,4 @@ int main()
     printf("enter a num:\n");
     scanf("%d",&n);
     n&1?puts("odd"):puts("even");
-    
 }
