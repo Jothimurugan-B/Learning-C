@@ -3,7 +3,7 @@
 int main()
 {
   int a[100];
-  int n,i,j,k;
+  int n,i,j,k,count=0;
   printf("Enter number of array elements:");
   scanf("%d",&n);
   
@@ -22,12 +22,14 @@ int main()
       
      if(i==k) //means first time this element appeared
      {
+        count=0;
       for(j=i+1;j<n;j++)
       {
           if(a[i]==a[j])
-           printf("%d ",a[i]);
+          count++; 
       }
-      
+      if(count>=1)
+      printf("%d ",a[i]);
      }
      
   }
