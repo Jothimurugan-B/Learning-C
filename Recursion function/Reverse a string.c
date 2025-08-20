@@ -1,6 +1,6 @@
 //C program to reverse a string using recursion function
 #include<stdio.h>
-char* reverse(char*,int,int,char);
+char* reverse(char*,int,int);
 int main()
 {
     int i=0,j;
@@ -8,12 +8,13 @@ int main()
     printf("Enter the string:");
     scanf("%[^\n]",s);
     for(j=0;s[j];j++);
-    reverse(s,i,j-1,temp);
+    reverse(s,i,j-1);
     printf("%s",s);
 }
 
-char* reverse(char *d,int i,int j,char temp)
+char* reverse(char *d,int i,int j)
 {
+    char temp;
     if(i<j)
     {
       temp=d[i];
@@ -21,7 +22,7 @@ char* reverse(char *d,int i,int j,char temp)
       d[j]=temp;
       i++;
       j--;
-      return reverse(d,i,j,temp);
+      return reverse(d,i,j);
     }
     else
     return d;
