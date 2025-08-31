@@ -11,7 +11,7 @@ struct jo
 int main()
 {
     char op;
-	struct jo *hptr=0,*temp,*p;
+	struct jo *hptr=0,*temp,*p,*temp2;
 	do
 	{
 		p=(struct jo*)malloc(sizeof(struct jo));
@@ -41,8 +41,9 @@ int main()
 		while(temp!=0)
 		{
 		    printf("%d ",temp->x);
+			temp2=temp->next;
 		    free(temp);
-		    temp=temp->next;
+		    temp=temp2;
 		}
     
 }
