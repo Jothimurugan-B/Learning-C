@@ -3,42 +3,48 @@
 #include<stdlib.h>
 struct jo
 {
-	int x;
-	struct jo *next;
+    int n;
+    char s[20];
+    float marks;
+    struct jo *next;
 };
+void add_begin(struct jo**);
+void print(struct jo*);
 
-int main()
+int  main()
 {
-	char op;
-	struct jo *hptr=0,*temp,*p;
-
-	do
-	{
-		p=(struct jo*)malloc(sizeof(struct jo));
-
-		printf("Enter data:\n");
-		scanf("%d",&p->x);
-
-		if(hptr==0)
-		{
-			p->next=0;
-			hptr=p;
-		}
-		else
-		{
-			p->next=hptr;
-			hptr=p;
-		}
-
-		printf("Do you want to add another node(y or n):\n");
-		scanf(" %c",&op);
-	} while(op=='y');
-	
-	printf("Display each node data:\n");
-	temp=hptr;
-	while(temp!=0)
+    struct jo *head=0;
+    char op;
+    do
     {
-        printf("%d ",temp->x);
-        temp=temp->next;
-    }
+      add_begin(&head);
+      printf("Do you want add another node(y or n):\n");
+      scanf(" %c",&op);
+    }while(op =='y');
+    
+    print(head);
 }
+
+void add_begin(struct jo**hptr)
+{
+    struct jo *new;
+    new=(struct jo*)malloc(sizeof(struct jo));
+    
+    new->next=0;
+    printf("Enter stud details:\n");
+    scanf("%d %s %f",&new->n,new->s,&new->marks);
+    
+    new->next=*hptr;
+    *hptr=new;
+}
+
+void print(struct jo *temp)
+{
+    printf("Display stud details:\n");
+   while(temp!=0)
+   {
+       printf("%d %s %f\n",temp->n,temp->s,temp->marks);
+       temp=temp->next;
+   }
+}
+
