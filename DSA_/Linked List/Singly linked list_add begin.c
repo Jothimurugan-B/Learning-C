@@ -1,4 +1,4 @@
-// C program to create a singly linked list by insertion at beginning and display it
+// C program to create a singly linked list by insertion at beginning and display it in forward and reverse order.
 #include<stdio.h>
 #include<stdlib.h>
 struct jo
@@ -10,6 +10,7 @@ struct jo
 };
 void add_begin(struct jo**);
 void print(struct jo*);
+void rev_print(struct jo*);
 
 int  main()
 {
@@ -23,6 +24,8 @@ int  main()
     }while(op =='y');
     
     print(head);
+    printf("Print stud details in reverse:\n");
+    rev_print(head);
 }
 
 void add_begin(struct jo**hptr)
@@ -48,3 +51,11 @@ void print(struct jo *temp)
    }
 }
 
+void rev_print(struct jo* temp)
+{
+    if((temp->next)!=0)
+    {
+        rev_print(temp->next);
+    }
+    printf("%d %s %f\n",temp->n,temp->s,temp->marks);
+}
